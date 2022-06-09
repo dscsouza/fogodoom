@@ -29,6 +29,7 @@ start();
 
 
 function desenhaTabela(){
+    htmlTable = '';
     lengthCanvas = x * y;
     tabela = document.querySelector("#canvas");
     num = 0;
@@ -76,9 +77,10 @@ function varreArray(){
     for (i = y-2; i != 0; i--) {
         num = i * x;
         for (j = x; j != 0; j--) {
-            if (intensidade[num+j+x] !=0){
+            if (intensidade[num+j+x] > 0){
                 payload = Math.floor(Math.random() * intensidade[num+j+x]);
                 intensidade[num + j] = intensidade[num+j+x] - payload;
+                console.log(intensidade[num + j]);
             }
         }
     }
