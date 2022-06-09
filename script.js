@@ -14,14 +14,13 @@ function start(){
     // varreArray()
     dadosIniciais()
     desenhaTabela()
-    console.log(fireColorsPalette)
 
     setInterval(() => {
         varreArray();
 
         desenhaTabela()
         
-    }, 200);
+    }, 10);
 
 }
 
@@ -80,7 +79,7 @@ function varreArray(){
             if (intensidade[num+j+x] > 0){
                 payload = Math.floor(Math.random() * intensidade[num+j+x]);
                 intensidade[num + j] = intensidade[num+j+x] - payload;
-                console.log(intensidade[num + j]);
+                
             }
         }
     }
