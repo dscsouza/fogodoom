@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogo Doom</title>
+</head>
+<body>
+    <style>
+        :root{
+            --lengt-pixel:20px;
+        }
+        .container{
+            font-family:monospace;
+
+
+        }
+        table{
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 10px;
+        }
+        th, td{
+            table-layout: fixed;
+            border: 1px solid;
+            
+        }
+        td{
+            height: var(--lengt-pixel);
+            width: var(--lengt-pixel);
+            position: relative;
+        }
+        .index{
+            position: absolute;
+            /* calc(var(--lengt-pixel)) */
+            top:0;
+            right: 0px;
+            font-size: 6px;
+
+        
+            
+        }
+        .teste{
+            color: rgb(1, 0, 0);
+        }
+    
+    </style>
+    <div class="container">
+        <div id="root">
+            <table id="canvas" class="tabela">
+                
+            </table>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
