@@ -1,8 +1,8 @@
 let intensidade = [];
 let intensidadeInicial = 35;
 let canvas = [];
-let x = 50;
-let y = 50;
+let x = 60;
+let y = 30;
 let htmlTable = "";
 let development = false;
 let estilo = ""
@@ -66,29 +66,59 @@ function desenhaTabela(){
 }
 
 function renderizaIntensidade(pos){
-  
-  return `rgb(${fireColorsPalette[intensidade[pos]].r}, ${fireColorsPalette[intensidade[pos]].g}, ${fireColorsPalette[intensidade[pos]].b})`
+    let addColor = 0;
+    addColor = ((addColor + pos) >= 15 & (addColor + pos) <= 31)?5:0;
+    
+    return `rgb(${fireColorsPalette[intensidade[pos+(addColor)]].r}, ${fireColorsPalette[intensidade[pos+(addColor)]].g}, ${fireColorsPalette[intensidade[pos+(addColor)]].b})`
 
 }
-
 function varreArray(){
+    
 
-    for (i = y-2; i != 0; i--) {
+    for (i = y+1; i != 0; i--) {
         num = i * x;
         for (j = x; j != 0; j--) {
-            if (intensidade[num+j+x] > 0){
-                payload = Math.floor(Math.random() * intensidade[num+j+x]);
-                intensidade[num + j] = intensidade[num+j+x] - payload;
-                
+            if (intensidade[num+j+x]>0){
+                payload = Math.floor(1+Math.random() * (intensidade[num+j+x]/3));
+                console.log(payload);
+                //randomiza a direção do fogo
+                diff = Math.floor(-Math.random()+Math.random());
+                intensidade[num + j+diff] = intensidade[num+j+(x)] - payload<=36?intensidade[num+j+x] - payload:0;
+                // intensidade[num + j-x-2] = intensidade[num+j+(x)] - payload<=32?intensidade[num+j+x] - payload:0;
+                // intensidade[num + j-(x*2)-1] = intensidade[num+j] - payload<=32?intensidade[num+j+x] - payload:0;
             }
+
+
+            // if (num+j-1 <= num){
+            //     intensidade[num+j-1] > 0 = intensidade[num+j-1]>0
+            // }
         }
     }
+
+
+    for (let i = 0; i < x * y; i++){
+        if ((i < x*y) & i >= (x*y-x)){
+            intensidade[i]=27 + Math.floor(Math.random() * 6);
+        }else{
+            intensidade[i]=intensidade[i];
+        }
+    }
+
+
     //continuar daqui, falta implementar a lógica para varrer array
 
     // for (i = (x*y-1); i = 0; i--) {
     //     payload = Math.floor(Math.random() * 35)                      
     //     intensidade[num + j] = intensidadeInicial - payload;       
     // }
+
+    // if (currentFireIntensity > 0) {
+    //     const decay = Math.floor(Math.random() * 14)
+    //     const newFireIntensity =
+    //       currentFireIntensity - decay >= 0 ? currentFireIntensity - decay : 0
+  
+    //     firePixelsArray[pixelIndex] = newFireIntensity
+    //   }
 
 
 }
@@ -99,7 +129,7 @@ function dadosIniciais(){
     
     for (let i = 0; i < x * y; i++){
         if ((i < x*y) & i >= (x*y-x)){
-            intensidade[i]=35;
+            intensidade[i]=28 + Math.floor(Math.random() * 5);
         }else{
             intensidade[i]=0;
         }
