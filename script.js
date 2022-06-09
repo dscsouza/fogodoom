@@ -1,8 +1,8 @@
 let intensidade = [];
 let intensidadeInicial = 35;
 let canvas = [];
-let x = 10;
-let y = 15;
+let x = 50;
+let y = 50;
 let htmlTable = "";
 let development = false;
 let estilo = ""
@@ -21,7 +21,7 @@ function start(){
 
         desenhaTabela()
         
-    }, 1000);
+    }, 200);
 
 }
 
