@@ -104,23 +104,6 @@ function varreArray(){
         }
     }
 
-
-    //continuar daqui, falta implementar a lógica para varrer array
-
-    // for (i = (x*y-1); i = 0; i--) {
-    //     payload = Math.floor(Math.random() * 35)                      
-    //     intensidade[num + j] = intensidadeInicial - payload;       
-    // }
-
-    // if (currentFireIntensity > 0) {
-    //     const decay = Math.floor(Math.random() * 14)
-    //     const newFireIntensity =
-    //       currentFireIntensity - decay >= 0 ? currentFireIntensity - decay : 0
-  
-    //     firePixelsArray[pixelIndex] = newFireIntensity
-    //   }
-
-
 }
 
 
