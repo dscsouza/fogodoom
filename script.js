@@ -1,8 +1,8 @@
 let intensidade = [];
 let intensidadeInicial = 35;
 let canvas = [];
-let x = 60;
-let y = 30;
+let x = 90;
+let y = 33;
 let htmlTable = "";
 let development = false;
 let estilo = ""
@@ -79,7 +79,7 @@ function varreArray(){
         num = i * x;
         for (j = x; j != 0; j--) {
             if (intensidade[num+j+x]>0){
-                payload = Math.floor(1+Math.random() * (intensidade[num+j+x]/3));
+                payload = Math.floor(0.3+Math.random() * (intensidade[num+j+x]/3));
                 console.log(payload);
                 //randomiza a direção do fogo
                 diff = Math.floor(-Math.random()+Math.random());
