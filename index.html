@@ -1,61 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fogo Doom</title>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        :root{
-            --lengt-pixel:0.5px;
-        }
-        .container{
-            font-family:monospace;
+      :root {
+        --lengt-pixel: 0.5px;
+      }
+      .container {
+        font-family: monospace;
+      }
+      table {
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 8px;
+      }
+      th,
+      td {
+        table-layout: fixed;
+        border: 1px solid;
+      }
+      td {
+        height: var(--lengt-pixel);
+        width: var(--lengt-pixel);
+        position: relative;
+      }
+      .index {
+        position: absolute;
+        /* calc(var(--lengt-pixel)) */
+        top: 0;
+        right: 0px;
+        font-size: 6px;
+      }
+      .teste {
+        color: rgb(1, 0, 0);
+      }
 
+      /* estilo do slider */
 
-        }
-        table{
-            border-collapse: collapse;
-            text-align: center;
-            font-size: 8px;
-        }
-        th, td{
-            table-layout: fixed;
-            border: 1px solid;
-            
-        }
-        td{
-            height: var(--lengt-pixel);
-            width: var(--lengt-pixel);
-            position: relative;
-        }
-        .index{
-            position: absolute;
-            /* calc(var(--lengt-pixel)) */
-            top:0;
-            right: 0px;
-            font-size: 6px;
+      .slide-container {
+        width: 170px;
+      }
 
-        
-            
-        }
-        .teste{
-            color: rgb(1, 0, 0);
-        }
+      .slider {
+        -webkit-appearance: none;
+        width: 170px;
+        height: 5px;
+        border-radius: 5px;
+        background: #e20707;
+        outline: none;
+        opacity: 0.5;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+
+      .slider:hover {
+        opacity: 1;
+      }
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 23px;
+        height: 24px;
+        border: 2px;
+        border-radius: 50%;
+        background-image: url('./flame.png');
+        background-color: transparent;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+
+      .slider::-moz-range-thumb {
+        width: 23px;
+        height: 24px;
+        border: 0;
+        background-image: url('./flame.png');
+        background-color: transparent;
+
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+
     
     </style>
     <div class="container">
-        <div id="root">
-    
-            <table id="canvas" class="tabela">
-                
-            </table>
+      <div id="root">
+        <table id="canvas" class="tabela"></table>
+      </div>
+    </div>
 
-        </div>
+    <div>
+      <input
+        id="rangeIntensidade"
+        class="slider"
+        type="range"
+        min="0"
+        max="1"
+        value="1"
+        step="0.1"
+        onchange="attIntensidade()"
+      />
     </div>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
