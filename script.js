@@ -62,11 +62,7 @@ function start() {
     varreArray();
 
     desenhaTabela();
-    
   }, 50);
- 
-
-  
 }
 
 start();
@@ -123,25 +119,17 @@ function varreArray() {
     for (j = x; j != 0; j--) {
       if (intensidade[num + j + x] > 0) {
         payload = Math.floor(
-           (1 - alturaChamas) + Math.random() * (intensidade[num + j + x] / 3)
+          1 - alturaChamas + Math.random() * (intensidade[num + j + x] / 3)
         );
         // console.log(payload);
 
-        diff = (aleatorio)
-            ? Math.floor(-Math.random() + Math.random())
-            :diff;
+        diff = aleatorio ? Math.floor(-Math.random() + Math.random()) : diff;
 
         intensidade[num + j + diff] =
           intensidade[num + j + x] - payload <= 36
             ? intensidade[num + j + x] - payload
             : 0;
-        // intensidade[num + j-x-2] = intensidade[num+j+(x)] - payload<=32?intensidade[num+j+x] - payload:0;
-        // intensidade[num + j-(x*2)-1] = intensidade[num+j] - payload<=32?intensidade[num+j+x] - payload:0;
       }
-
-      // if (num+j-1 <= num){
-      //     intensidade[num+j-1] > 0 = intensidade[num+j-1]>0
-      // }
     }
   }
 
@@ -162,7 +150,6 @@ function dadosIniciais() {
       intensidade[i] = 0;
     }
   }
-  // console.log(intensidade);
 }
 
 function attIntensidade() {
