@@ -123,7 +123,7 @@ function varreArray() {
     for (j = x; j != 0; j--) {
       if (intensidade[num + j + x] > 0) {
         payload = Math.floor(
-           alturaChamas + Math.random() * (intensidade[num + j + x] / 3)
+           (1 - alturaChamas) + Math.random() * (intensidade[num + j + x] / 3)
         );
         // console.log(payload);
 
