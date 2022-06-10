@@ -9,7 +9,14 @@
   <body>
     <style>
       :root {
-        --lengt-pixel: 0.5px;
+        --lengt-pixel: 1px;
+        background-color: black;
+      }
+      body{
+          display: flex;
+          width: 60%;
+          justify-content: space-between;
+          
       }
       .container {
         font-family: monospace;
@@ -47,6 +54,7 @@
       }
 
       .slider {
+        
         -webkit-appearance: none;
         width: 170px;
         height: 5px;
@@ -88,27 +96,108 @@
         background-repeat: no-repeat;
         cursor: pointer;
       }
+      .wind{
+
+        display:flex;
+        align-items: center;
+        
+        color:gray;
+
+      }
+
+      .wind2{
+            max-width: 150px;
+            flex-direction:column !important;
+            font-size: 10px;
+            text-align: center;
+      }
+      .fan{
+          width: 150px;
+          padding: 0;
+          margin: 0;
+          opacity: 0.6 !important;
+          align-items: center;
+      }
+      .fan:hover{
+          opacity: 1 !important;
+          cursor: pointer;
+
+      }
+
+      .fanE{
+          width: 150px;
+          padding: 0;
+          margin-right: 50px;
+      }
+
+
+      .btn{
+          background-color:dodgerblue !important;
+          color: white !important;
+          border: none !important;
+          padding: 5px;
+          opacity: 0.6 !important;
+          
+      }
+
+      .btn:hover{
+        opacity: 1 !important;
+        cursor: pointer;
+          
+      }
+
+    
 
     
     </style>
+
+    
+
+
+
+    <div class="wind">
+        <div class="wind2">
+        <img class="fan" src="./funRigthBlack.jpg" alt="Soprar vento para direita" onclick="attDirecao(2)" srcset="">
+        <span>Soprar vento para direita</span>
+        </div>
+    </div>
+
     <div class="container">
       <div id="root">
         <table id="canvas" class="tabela"></table>
       </div>
+      <div style="text-align: center;">
+        <input
+          id="rangeIntensidade"
+          class="slider"
+          type="range"
+          min="0"
+          max="0.6"
+          value="0.1"
+          step="0.1"
+          onchange="attIntensidade()"
+          onload="attIntensidade()"
+        />
+      </div>
+
+      <div  style="margin-top: 10px; text-align: center;">
+        <button class="btn" onclick="attDirecao(0)">Chamas Aleatórias</button>
+        <button class="btn" onclick="attDirecao(3)">Chamas Lineares</button>
+      </div>
+
+
     </div>
 
-    <div>
-      <input
-        id="rangeIntensidade"
-        class="slider"
-        type="range"
-        min="0"
-        max="1"
-        value="1"
-        step="0.1"
-        onchange="attIntensidade()"
-      />
+    <div class="wind">
+        <div class="wind2">
+            <img class="fan" src="./funLeftBlack.jpg" onclick="attDirecao(1)" alt="Soprar vento para esquerda" srcset="">
+            <span>Soprar vento para esquerda</span>
+
+        </div>
     </div>
+
+
+    
 
     <script src="./script.js"></script>
   </body>
